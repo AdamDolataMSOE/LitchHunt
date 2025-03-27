@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.26)
 set(CMAKE_CXX_STANDARD 20)
 
 # Add executable
-add_executable(src
+add_executable(litch_hunt
         litch_hunt.cpp
         hazards.cpp
         map_parts.cpp
