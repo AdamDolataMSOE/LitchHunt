@@ -38,6 +38,7 @@ class MapCell{
     char getHazardSymbol() const;
     SpikeTrap* getHazard() const;
     Monster* getMonster() const;
+    void removeMonster();
     void playerEnter();
     void playerExit();
     void setHazard();

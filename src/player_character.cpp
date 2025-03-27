@@ -110,8 +110,12 @@ void PlayerCharacter::setCurrentCell(MapCell* cell) {
 }
 
 int PlayerCharacter::magicAttack() {
-  scrollCount--;
-  return rand() % (7 + 1);
+  if (scrollCount > 0) {
+    scrollCount--;
+    return rand() % (7 + 1);
+  }
+  cout << "You have no magic scrolls left to use." << endl;
+  return 0;
 }
 
 int PlayerCharacter::swordAttack() {

@@ -46,6 +46,10 @@ bool Litch::getAttacked(char type, int toHit, int damage) {
     if (toHit >= magicArmor) {
       cout << "You hit the litch with your magic attack!" << endl;
       health -= damage;
+      if (health < 0) {
+        health = 0;
+      }
+      cout << "Litch Health: " << health << "/35" << endl;
     } else {
       cout << "Your magic attack went wide and harmlessly hit the wall" << endl;
     }
@@ -53,6 +57,10 @@ bool Litch::getAttacked(char type, int toHit, int damage) {
     if (toHit >= physicalArmor) {
       cout << "You hit the litch with your sword!" << endl;
       health -= damage;
+      if (health < 0) {
+        health = 0;
+      }
+      cout << "Litch Health: " << health << "/35" << endl;
     } else {
       cout << "You swung and missed the litch" << endl;
     }
@@ -80,6 +88,10 @@ bool FlyingSkull::getAttacked(char type, int toHit, int damage) {
     if (toHit >= magicArmor) {
       cout << "You hit the flying skull with your magic attack!" << endl;
       health -= damage;
+      if (health < 0) {
+        health = 0;
+      }
+      cout << "Flying Skull Health: " << health << "/10" << endl;
     } else {
       cout << "Your magic attack missed the flying skull" << endl;
     }
@@ -87,12 +99,17 @@ bool FlyingSkull::getAttacked(char type, int toHit, int damage) {
     if (toHit >= physicalArmor) {
       cout << "You were fast enough and hit the flying skull with your sword!" << endl;
       health -= damage;
+      if (health < 0) {
+        health = 0;
+      }
+      cout << "Flying Skull Health: " << health << "/10" << endl;
     } else {
       cout << "The flying skull was too quick and you missed it with your sword." << endl;
     }
   }
   if (health <= 0) {
     cout << "You have defeated the flying skull." << endl;
+
     return true;
   }
   return false;

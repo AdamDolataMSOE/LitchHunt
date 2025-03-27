@@ -31,12 +31,10 @@ char MapCell::getHazardSymbol() const {
 }
 
 MapCell::~MapCell() {
-  if (hazard != nullptr) {
-    delete hazard;
-  }
-  if (monster != nullptr) {
-    delete monster;
-  }
+
+  delete hazard;
+  delete monster;
+
 }
 
 void MapCell::setNeighbors(MapCell* north, MapCell* south, MapCell* east, MapCell* west) {
@@ -74,6 +72,11 @@ void MapCell::setHazard() {
   } else if (hazardSymbol == '^') {
     hazard = new SpikeTrap();
   }
+}
+
+void MapCell::removeMonster() {
+  // delete monster;
+  hazardSymbol = '.';
 }
 
 void MapCell::printCell() {

@@ -194,6 +194,7 @@ bool potentialCombat(char playerAction, PlayerCharacter* pc) {
     if (playerAction == '1') {
       end = monster->getAttacked('s', hitRoll(), pc->swordAttack()); //sword attack
       if (end) {
+        pc->getCurrentCell()->removeMonster();
         litchDead = true;
         return end;
       }
@@ -213,6 +214,7 @@ bool potentialCombat(char playerAction, PlayerCharacter* pc) {
     if (playerAction == '2') {
       end = monster->getAttacked('m', hitRoll(), pc->swordAttack()); //magic attack
       if (end) {
+        pc->getCurrentCell()->removeMonster();
         litchDead = true;
         return end;
       }
@@ -253,6 +255,7 @@ bool potentialCombat(char playerAction, PlayerCharacter* pc) {
     if (playerAction == '1') {
       end = monster->getAttacked('s', hitRoll(), pc->swordAttack()); //sword attack
       if (end) {
+        pc->getCurrentCell()->removeMonster();
         return false;
       }
       if (pc->getAttacked(hitRoll(), monster->rollDamage()) == 0) {
@@ -270,6 +273,7 @@ bool potentialCombat(char playerAction, PlayerCharacter* pc) {
     if (playerAction == '2') {
       end = monster->getAttacked('m', hitRoll(), pc->swordAttack()); //magic attack
       if (end) {
+        pc->getCurrentCell()->removeMonster();
         return false;
       }
       if (pc->getAttacked(hitRoll(), monster->rollDamage()) == 0) {

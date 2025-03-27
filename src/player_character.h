@@ -6,7 +6,6 @@
 #ifndef PLAYER_CHARACTER_H
 #define PLAYER_CHARACTER_H
 
-#include "map_parts.h"
 class MapCell;
 
 class PlayerCharacter {
